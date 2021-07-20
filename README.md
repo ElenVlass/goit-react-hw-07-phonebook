@@ -1,1 +1,8 @@
-# goit-react-hw-07-phonebook
+Redux middleware & Асинхронность в Redux
+
+Селекторы, мемоизация и Reselect
+
+Создан локальный бекенд для разработки при помощи библиотеки json-server.
+
+Redux-операции для работы с асинхронными запросами по паттерну request, success и error.
+Добавлены селекторы в файл contacts-selectors.js и сделана мемоизация селекторов.
