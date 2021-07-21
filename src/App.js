@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <Container>
         <h1>Phonebook</h1>
-        {/* <PhonebookForm
+        <PhonebookForm
           aria-label="Add contact"
           children={<AddContactIcon width="25" height="25" fill="#fff" />}
         />
@@ -22,7 +22,7 @@ class App extends Component {
         <ContactList
           aria-label="Delete contact"
           children={<DeleteContactIcon width="25" height="25" />}
-        /> */}
+        />
       </Container>
     );
   }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import styles from "./PhonebookForm.module.scss";
-import * as actions from "../../redux/phoneBook-actions";
+import * as operations from "../../redux/phoneBook-operations";
 
 class PhonebookForm extends Component {
   static defaultProps = {
@@ -98,7 +98,7 @@ const mapStateToProps = ({ phoneBook: { contacts } }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onSubmit: (contact) => dispatch(actions.addContact(contact)),
+  onSubmit: (contact) => dispatch(operations.addContact(contact)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhonebookForm);
