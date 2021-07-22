@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import styles from "./PhonebookForm.module.scss";
-import * as operations from "../../redux/phoneBook-operations";
+import { operations, phoneBookSelectors } from "../../redux";
 
 class PhonebookForm extends Component {
   static defaultProps = {
@@ -93,8 +93,8 @@ class PhonebookForm extends Component {
   }
 }
 
-const mapStateToProps = ({ phoneBook: { contacts } }) => ({
-  allContacts: contacts,
+const mapStateToProps = (state) => ({
+  allContacts: phoneBookSelectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

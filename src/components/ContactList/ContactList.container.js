@@ -1,23 +1,11 @@
 import { connect } from "react-redux";
-import * as operations from "../../redux/phoneBook-operations";
 import ContactList from "./ContactList";
+import { phoneBookSelectors, operations } from "../../redux";
 
-const specifyContacts = (allContacts, filter) => {
-  const normalizedContactSnippet = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedContactSnippet)
-  );
-};
-
-const mapStateToProps = (state) => {
-  const { contacts, filter, loading } = state.phoneBook;
-
-  return {
-    list: specifyContacts(contacts, filter),
-    isLoading: loading,
-  };
-};
+const mapStateToProps = (state) => ({
+  list: phoneBookSelectors.getSpecifiedContacts(state),
+  isLoading: phoneBookSelectors.getIsLoading(state),
+});
 
 const mapDispatchToProps = (dispatch) => ({
   onDelete: (id) => dispatch(operations.deleteContact(id)),

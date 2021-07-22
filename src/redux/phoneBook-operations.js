@@ -15,7 +15,7 @@ import {
 
 axios.defaults.baseURL = "http://localhost:4040";
 
-export const addContact = (newContact) => (dispatch) => {
+const addContact = (newContact) => (dispatch) => {
   const contact = {
     id: uuidv4(),
     name: newContact.name,
@@ -30,7 +30,7 @@ export const addContact = (newContact) => (dispatch) => {
     .catch((erorr) => dispatch(addContactError(erorr)));
 };
 
-export const deleteContact = (contactId) => (dispatch) => {
+const deleteContact = (contactId) => (dispatch) => {
   dispatch(deleteContactRequest());
 
   axios
@@ -39,7 +39,7 @@ export const deleteContact = (contactId) => (dispatch) => {
     .catch((error) => dispatch(deleteContactError(error)));
 };
 
-export const fetchContacts = () => async (dispatch) => {
+const fetchContacts = () => async (dispatch) => {
   dispatch(fetchContactsRequest());
 
   try {
@@ -48,4 +48,9 @@ export const fetchContacts = () => async (dispatch) => {
   } catch (error) {
     dispatch(fetchContactsError(error));
   }
+};
+export default {
+  addContact,
+  deleteContact,
+  fetchContacts,
 };
